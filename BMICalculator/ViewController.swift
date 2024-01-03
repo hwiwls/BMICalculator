@@ -57,15 +57,29 @@ class ViewController: UIViewController {
     }
     
     @IBAction func confirmBtnClicked(_ sender: UIButton) {
-        let alert = UIAlertController(title: "BMI 지수는 \(round(calcBMI()*100)/100) 입니다.", message: nil, preferredStyle: .alert)
-        // 2. 버튼
-        let btn1 = UIAlertAction(title: "확인", style: .cancel) // 안 쓰거나 두 개 이상 쓰는 건 불가
-        let btn2 = UIAlertAction(title: "cancel", style: .destructive)
-        // 3. 컨텐츠 + 버튼
-        alert.addAction(btn1)
-        alert.addAction(btn2)
-        // 4. 띄우기
-        present(alert, animated: true)
+        let result = calcBMI()
+        if result.isNaN == true || ht == 0.0 || wt == 0.0 || ht >= 200.0 || wt >= 200.0 {
+            let alert = UIAlertController(title: "잘못된 값을 입력하셨습니다.", message: nil, preferredStyle: .alert)
+            // 2. 버튼
+            let btn1 = UIAlertAction(title: "확인", style: .cancel) // 안 쓰거나 두 개 이상 쓰는 건 불가
+            let btn2 = UIAlertAction(title: "cancel", style: .destructive)
+            // 3. 컨텐츠 + 버튼
+            alert.addAction(btn1)
+            alert.addAction(btn2)
+            // 4. 띄우기
+            present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "BMI 지수는 \(round(calcBMI()*100)/100) 입니다.", message: nil, preferredStyle: .alert)
+            // 2. 버튼
+            let btn1 = UIAlertAction(title: "확인", style: .cancel) // 안 쓰거나 두 개 이상 쓰는 건 불가
+            let btn2 = UIAlertAction(title: "cancel", style: .destructive)
+            // 3. 컨텐츠 + 버튼
+            alert.addAction(btn1)
+            alert.addAction(btn2)
+            // 4. 띄우기
+            present(alert, animated: true)
+        }
+        
     }
     
     @IBAction func calcRandomly(_ sender: Any) {
