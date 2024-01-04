@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     @IBAction func confirmBtnClicked(_ sender: UIButton) {
         let result = calcBMI()
         if result.isNaN == true || ht == 0.0 || wt == 0.0 || ht >= 200.0 || wt >= 200.0 {
-            let alert = UIAlertController(title: "잘못된 값을 입력하셨습니다.", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "잘못된 값을 입력하셨습니다.", message: "문자열, 공백, 잘못된 범위 입력은 계산이 어렵습니다.", preferredStyle: .alert)
             // 2. 버튼
             let btn1 = UIAlertAction(title: "확인", style: .cancel) // 안 쓰거나 두 개 이상 쓰는 건 불가
             let btn2 = UIAlertAction(title: "cancel", style: .destructive)
