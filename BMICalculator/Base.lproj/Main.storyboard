@@ -116,6 +116,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Reset">
                                     <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YPr-Zk-kyk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -167,6 +170,7 @@
                         <outlet property="cmTextField" destination="spC-Nq-xBq" id="999-ji-pYp"/>
                         <outlet property="confirmBtn" destination="I71-40-xyj" id="C7E-2D-h1B"/>
                         <outlet property="nameTextField" destination="lm6-A1-kkC" id="Iz5-Lc-gHs"/>
+                        <outlet property="resetBtn" destination="yeF-6I-BTd" id="UbJ-J3-Puu"/>
                         <outlet property="weightTextField" destination="WL8-rB-66X" id="Nee-YR-UOr"/>
                     </connections>
                 </viewController>

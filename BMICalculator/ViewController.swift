@@ -8,15 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet weak var confirmBtn: UIButton!
     
     @IBOutlet weak var cmTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     
-    
     @IBOutlet weak var calRandomBtn: UIButton!
+    
+    @IBOutlet weak var resetBtn: UIButton!
     
     var ht: Double = 0
     var wt: Double = 0
@@ -28,24 +28,28 @@ class ViewController: UIViewController {
     }
     
     func saveUserDefaults() {
+        /*
+         이해가 안 가네
+         */
+        
         // 1. 이름
         let name = UserDefaults.standard.string(forKey: "Name")
         
-        if let name {
+        if let name, !name.isEmpty {
             nameTextField.text = name
         }
         
         // 2. 키
         let storedHeight = UserDefaults.standard.string(forKey: "Height")
         
-        if let storedHeight {
+        if let storedHeight, !storedHeight.isEmpty {
             cmTextField.text = storedHeight
         }
         
         // 3. 몸무게
         let storedWeight = UserDefaults.standard.string(forKey: "Weight")
         
-        if let storedWeight {
+        if let storedWeight, !storedWeight.isEmpty {
             weightTextField.text = storedWeight
         }
     }
@@ -129,6 +133,16 @@ class ViewController: UIViewController {
         present(alert, animated: true)
         
         UserDefaults.standard.setValue(nameTextField.text, forKey: "Name")
+    }
+    
+    @IBAction func resetBtnClicked(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "Name")
+        UserDefaults.standard.removeObject(forKey: "Height")
+        UserDefaults.standard.removeObject(forKey: "Weight")
+        
+        nameTextField.text = ""
+        cmTextField.text = ""
+        weightTextField.text = ""
     }
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
