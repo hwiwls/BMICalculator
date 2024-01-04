@@ -166,6 +166,7 @@
                         <outlet property="calRandomBtn" destination="BnC-a2-IWq" id="nDy-op-nCL"/>
                         <outlet property="cmTextField" destination="spC-Nq-xBq" id="999-ji-pYp"/>
                         <outlet property="confirmBtn" destination="I71-40-xyj" id="C7E-2D-h1B"/>
+                        <outlet property="nameTextField" destination="lm6-A1-kkC" id="Iz5-Lc-gHs"/>
                         <outlet property="weightTextField" destination="WL8-rB-66X" id="Nee-YR-UOr"/>
                     </connections>
                 </viewController>

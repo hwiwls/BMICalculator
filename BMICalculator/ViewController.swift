@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cmTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    
     
     @IBOutlet weak var calRandomBtn: UIButton!
     
@@ -22,6 +24,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        saveUserDefaults()
+    }
+    
+    func saveUserDefaults() {
+        // 1. 이름
+        let name = UserDefaults.standard.string(forKey: "Name")
+        
+        if let name {
+            nameTextField.text = name
+        }
+        
+        // 2. 키
+        let storedHeight = UserDefaults.standard.string(forKey: "Height")
+        
+        if let storedHeight {
+            cmTextField.text = storedHeight
+        }
+        
+        // 3. 몸무게
+        let storedWeight = UserDefaults.standard.string(forKey: "Weight")
+        
+        if let storedWeight {
+            weightTextField.text = storedWeight
+        }
     }
     
     func optionalBinding() {
@@ -80,6 +106,9 @@ class ViewController: UIViewController {
             present(alert, animated: true)
         }
         
+        UserDefaults.standard.setValue(nameTextField.text, forKey: "Name")
+        UserDefaults.standard.setValue(cmTextField.text, forKey: "Height")
+        UserDefaults.standard.setValue(weightTextField.text, forKey: "Weight")
     }
     
     @IBAction func calcRandomly(_ sender: Any) {
@@ -98,12 +127,12 @@ class ViewController: UIViewController {
         alert.addAction(btn2)
         // 4. 띄우기
         present(alert, animated: true)
+        
+        UserDefaults.standard.setValue(nameTextField.text, forKey: "Name")
     }
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    
-    
 }
 
