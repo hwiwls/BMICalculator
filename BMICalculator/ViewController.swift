@@ -28,9 +28,6 @@ class ViewController: UIViewController {
     }
     
     func saveUserDefaults() {
-        /*
-         이해가 안 가네
-         */
         
         // 1. 이름
         let name = UserDefaults.standard.string(forKey: "Name")
